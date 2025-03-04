@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  <div class="loading hanimate-pulse hidden h-[90%] w-[1500px] flex justify-center items-center text-4xl">Downloading video...
+<svg class="ml-3 h-6 w-6 animate-spin" viewBox="0 0 100 100">
+  <circle
+    fill="none"
+    stroke-width="20"
+    class="stroke-current opacity-40"
+    cx="50"
+    cy="50"
+    r="40"
+  />
+  <circle
+    fill="none"
+    stroke-width="20"
+    class="stroke-current"
+    stroke-dasharray="250"
+    stroke-dashoffset="210"
+    cx="50"
+    cy="50"
+    r="40"
+  />
+</svg>
+  </div>
+
+  <form action="{{url_for('download')}}" method="post" class="h-[90%] w-[50%]  items-center flex gap-4">
+    <div class="bg-[url({{info.get('thumbnail')}})] w-[600px]  bg-cover bg-no-repeat bg-center h-[500px] rounded-2xl ">
+    
+    </div>
+    <div class="w-full h-[500px] flex flex-col justify-between">
+      <div class="flex flex-col gap-3">
+        <h3 class="text-gray-200 text-xl">{{info.get('author')}}</h1>
+        <h1 class="text-white text-2xl font-bold">{{info.get('title')}}</h1>
+        <h3 class="text-lg">Views {{info.get('views')}}</h1>
+        <h3 class="text-lg">Likes {{info.get('likes')}}</h1>
+        <h3 class="text-lg">Duration {{info.get('length')}}</h1>
+      </div>
+      <input name="url" type="hidden" value="{{info.get('url')}}">
+      <button class="bg-green-700/75 text-white text-xl rounded py-2 px-4">Download</button>
+    </div>
+  </form>
+{% endblock content %}
+

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block head %}
+
+  <meta charset="UTF-8">
+  <script differ src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+  <script differ src="https://unpkg.com/@tailwindcss/browser@4"></script>
+  <script differ src="{{url_for('static', filename="js/loading.js")}}"></script>
+
+  {% if title %}
+     <title>0x11 - {{ title  }}</title>
+  {% else %}
+    <title>0x11</title>
+  {% endif %}
+
+  {% endblock head %}
+</head>
+
+<body class="bg-black/90 text-white p-4 w-[100%] items-center h-screen flex flex-col">
+  <nav class="flex justify-between items-center  w-[1500px]">
+    <h1 class="font-bold text-4xl mt-4">0x11</h1>
+
+    <ul class="flex gap-4 font-bold text-xl">
+      <li>About</li>
+      <li>Contact</li>
+      <li>Services</li>
+    </ul>
+
+  </nav>
+
+  {% block content %}
+  {% endblock content %}
+
+  <footer>
+  {% block footer %}
+    @OpenSource
+  {% endblock footer %}
+  </footer>
+</body>
+</html>

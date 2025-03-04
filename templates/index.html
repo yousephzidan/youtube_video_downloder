@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+  <div class="loading hanimate-pulse hidden h-[90%] w-[1500px] flex justify-center items-center text-4xl">Fetching Video Data
+<svg class="ml-3 h-6 w-6 animate-spin" viewBox="0 0 100 100">
+  <circle
+    fill="none"
+    stroke-width="20"
+    class="stroke-current opacity-40"
+    cx="50"
+    cy="50"
+    r="40"
+  />
+  <circle
+    fill="none"
+    stroke-width="20"
+    class="stroke-current"
+    stroke-dasharray="250"
+    stroke-dashoffset="210"
+    cx="50"
+    cy="50"
+    r="40"
+  />
+</svg>
+  </div>
+<form  method="POST" action="{{ url_for('info') }}"  class="h-[90%] w-[1500px] flex flex-col justify-center items-center" >
+  <input  name="url" type="text" class="w-full bg-none border-b border-gray-500 outline-none text-xl pb-2">
+</form>
+{% endblock content %}
