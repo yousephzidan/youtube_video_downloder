@@ -34,7 +34,7 @@ def video_info(url: str):
 def download_video(url: str):
 
     ydl_opts = {
-            'format': 'bestvideo[ext=mp4]+bestaudio[ext=m4a]/best',
+            'format': 'bestvideo[ext=mp4]',
             "outtmpl": "%(title)s.%(ext)s",
     }
 
