@@ -8,7 +8,9 @@ def video_info(url: str):
         'quiet': True,  
         'extract_flat': True,
         'force_generic_extractor': True,  
-        'no_warnings': True,  
+        'concurrent_fragments': 32,  
+        'http_chunk_size': 10 * 1024 * 1024,  
+        'throttled_rate': None,  
         'noplaylist': True,  
         'extractor_args': {
             'youtube': ['--no-check-certificate']
